@@ -1,0 +1,25 @@
+{
+  "extends": ["next/core-web-vitals", "next", "prettier"],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "newline-before-return": "error",
+    "no-console": "warn",
+    "no-var": "error",
+    "no-unused-vars": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "index",
+          "sibling",
+          "parent",
+          "internal",
+          "external",
+          "builtin",
+          "object",
+          "type"
+        ]
+      }
+    ]
+  }
+}
