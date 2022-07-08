@@ -4,5 +4,8 @@
   "sidebar_notify": "Notify",
   "sidebar_rule": "Rule",
   "sidebar_annotation": "Annotation",
-  "sidebar_user_group": "Users"
+  "sidebar_user_group": "Users",
+  "error_email": "Please enter correct email!",
+  "error_password_not_null": "Password is required!",
+  "error_password": "Password must be {{min}} - {{max}} characters long"
 }

@@ -1,3 +1,4 @@
+import { ILogin } from '~/interface';
 import { handleAxiosError } from '~/libs';
 import { AxiosInstance } from 'axios';
 
@@ -7,11 +8,21 @@ class AuthService {
     this.axios = axios;
   }
 
+  async login(data: ILogin) {
+    try {
+      const res = await this.axios.post('/login', data);
+
+      return { status: res.status, data: res.data };
+    } catch (error) {
+      return handleAxiosError(error);
+    }
+  }
+
   async getCsrf() {
     try {
-      return await this.axios.get('/sanctum/csrf-cookie');
+      return await this.axios.get('sanctum/csrf-cookie');
     } catch (error) {
-      handleAxiosError(error);
+      return handleAxiosError(error);
     }
   }
 }

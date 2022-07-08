@@ -1,6 +1,5 @@
-import { BACKEND_URL, INTERNAL_SERVER_ERROR } from '~/configs';
+import { BACKEND_URL } from '~/constants';
 import Axios, { AxiosError } from 'axios';
-import { toast } from 'react-toastify';
 
 export const axios = Axios.create({
   baseURL: BACKEND_URL,
@@ -13,8 +12,14 @@ export const axios = Axios.create({
 export const handleAxiosError = (error: unknown) => {
   const errors = error as Error | AxiosError;
   if (Axios.isAxiosError(errors)) {
-    toast.error(INTERNAL_SERVER_ERROR);
+    return {
+      status: errors.response?.status || 500,
+      data: errors.response?.data,
+    };
   } else {
-    toast.error(INTERNAL_SERVER_ERROR);
+    return {
+      status: 500,
+      data: errors.message,
+    };
   }
 };

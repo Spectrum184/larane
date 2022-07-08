@@ -2,10 +2,14 @@ import {
   AnnotationIcon,
   BellIcon,
   ChatIcon,
+  EmailSymbolIcon,
   FacebookIcon,
   GithubIcon,
   HomeIcon,
+  LockIcon,
+  LoginIcon,
   MoonIcon,
+  RegisterIcon,
   RuleIcon,
   SearchIcon,
   SpeakerIcon,
@@ -75,6 +79,22 @@ const SvgComponent: FC<PropsType> = ({ className, name = 'variable' }) => {
 
     case 'annotation':
       SvgComp = AnnotationIcon;
+      break;
+
+    case 'email-symbol':
+      SvgComp = EmailSymbolIcon;
+      break;
+
+    case 'lock':
+      SvgComp = LockIcon;
+      break;
+
+    case 'login':
+      SvgComp = LoginIcon;
+      break;
+
+    case 'register':
+      SvgComp = RegisterIcon;
       break;
 
     default:

@@ -4,6 +4,7 @@ import 'nprogress/nprogress.css';
 import 'moment/locale/vi';
 import 'moment/locale/ja';
 
+import { authService } from '~/services';
 import { appWithTranslation } from 'next-i18next';
 import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
@@ -29,6 +30,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeError', handleRouteDone);
     };
   }, [router]);
+
+  useEffect(() => {
+    authService.getCsrf();
+  }, []);
 
   return (
     <>
