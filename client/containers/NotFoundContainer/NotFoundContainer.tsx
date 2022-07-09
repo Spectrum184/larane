@@ -271,7 +271,7 @@ const NotFoundContainer: FC = () => {
             <p className='text-sm md:text-base text-red-500 p-2 mb-4'>
               Don&apos;t have nothing here!
             </p>
-            <Link href='/login'>
+            <Link href='/'>
               <a className='bg-transparent hover:bg-red-400 text-red-500 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-red-500 hover:border-transparent'>
                 Back home
               </a>

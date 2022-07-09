@@ -19,8 +19,12 @@ const Notify: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ({
   locale = 'en',
   res,
+  req,
 }) => {
-  const { status } = await userService.getUser();
+  const { status } = await userService.getUser(
+    req.headers.cookie,
+    req.cookies['XSRF-TOKEN']
+  );
 
   if (status >= 400) {
     res.writeHead(302, { Location: '/login' });

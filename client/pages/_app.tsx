@@ -7,7 +7,7 @@ import 'moment/locale/ja';
 import { authService } from '~/services';
 import { appWithTranslation } from 'next-i18next';
 import { ToastContainer } from 'react-toastify';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import NProgress from 'nprogress';
 import { useRouter } from 'next/router';
 import moment from 'moment';
@@ -15,6 +15,7 @@ import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const getCsrfToken = useCallback(async () => await authService.getCsrf(), []);
 
   useEffect(() => {
     const handleRouteStart = () => NProgress.start();
@@ -32,8 +33,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router]);
 
   useEffect(() => {
-    authService.getCsrf();
-  }, []);
+    getCsrfToken();
+  }, [getCsrfToken]);
 
   return (
     <>

@@ -9,6 +9,7 @@ import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 const LoginContainer: FC = () => {
   const {
@@ -19,10 +20,17 @@ const LoginContainer: FC = () => {
     resolver: yupResolver(loginSchema),
   });
   const { t } = useTranslation();
+  const router = useRouter();
 
-  const onSubmit = async (data: ILogin) => {
-    const res = await authService.login(data);
-    showToast(res.status, res.data.message);
+  const onSubmit = async (dataRegister: ILogin) => {
+    const { status, data } = await authService.login(dataRegister);
+
+    if (status < 300) {
+      showToast(status, 'Login success!');
+      router.push('/');
+    } else {
+      showToast(status, data.message);
+    }
   };
 
   return (

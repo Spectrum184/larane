@@ -10,12 +10,10 @@ class AuthService {
 
   async login(data: ILogin) {
     try {
-      const res = await this.axios.post('/login', data);
+      const res = await this.axios.post('login', data);
 
       return { status: res.status, data: res.data };
     } catch (error) {
-      console.log(error);
-
       return handleAxiosError(error);
     }
   }
@@ -30,7 +28,7 @@ class AuthService {
 
   async register(data: IRegister) {
     try {
-      const res = await this.axios.post('/register', {
+      const res = await this.axios.post('register', {
         ...data,
         password_confirmation: data.confirmPassword,
       });

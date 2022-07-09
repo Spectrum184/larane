@@ -18,8 +18,9 @@ const Register: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ({
   locale = 'en',
   res,
+  req,
 }) => {
-  const { data, status } = await userService.getUser();
+  const { data, status } = await userService.getUser(req.headers.cookie);
 
   if (status <= 300 && data) {
     res.writeHead(302, { Location: '/' });

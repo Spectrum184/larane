@@ -22,16 +22,15 @@ const RegisterContainer: FC = () => {
   const { t } = useTranslation();
   const router = useRouter();
 
-  const onSubmit = async (data: IRegister) => {
-    const res = await authService.register(data);
+  const onSubmit = async (dataRegister: IRegister) => {
+    const { status, data } = await authService.register(dataRegister);
 
-    console.log(res);
-
-    if (res.status < 300) {
-      showToast(res.status, 'Register complete, please login!');
-      router.push('/login');
+    if (status < 300) {
+      showToast(status, 'Register complete, please login!');
+      router.push('/');
+    } else {
+      showToast(status, data.message);
     }
-    showToast(res.status, res.data.message);
   };
 
   return (

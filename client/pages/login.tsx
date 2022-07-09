@@ -18,10 +18,11 @@ const Login: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ({
   locale = 'en',
   res,
+  req,
 }) => {
-  const { data, status } = await userService.getUser();
+  const resData = await userService.getUser(req.headers.cookie);
 
-  if (status <= 300 && data) {
+  if (resData.status <= 300 && resData.data) {
     res.writeHead(302, { Location: '/' });
     res.end();
   }

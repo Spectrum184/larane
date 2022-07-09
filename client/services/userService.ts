@@ -1,5 +1,6 @@
 import { IUser } from './../interface/user';
 import { handleAxiosError } from '~/libs';
+import { FRONTEND_URL } from '~/constants';
 import { AxiosInstance } from 'axios';
 
 class UserService {
@@ -8,12 +9,18 @@ class UserService {
     this.axios = axios;
   }
 
-  async getUser(): Promise<{
+  async getUser(cookies: string | undefined): Promise<{
     data: IUser | unknown;
     status: number;
   }> {
     try {
-      const res = await this.axios.get('api/user');
+      const res = await this.axios.get('api/user', {
+        headers: {
+          cookie: cookies || '',
+          accept: 'application/json',
+          referer: FRONTEND_URL,
+        },
+      });
 
       return { data: res.data, status: res.status };
     } catch (error) {
