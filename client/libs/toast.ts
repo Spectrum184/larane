@@ -1,10 +1,15 @@
 import { INTERNAL_SERVER_ERROR, SUCCESS_MESSAGE } from '~/constants';
 import { toast } from 'react-toastify';
 
-export const showToast = (status: number, message: string | undefined) => {
+export const showToast = (
+  status: number,
+  message: undefined | unknown | string
+) => {
+  const newMessage = typeof message === 'string' ? message : undefined;
+
   if (status < 300) {
-    toast.success(message || SUCCESS_MESSAGE);
+    toast.success(newMessage || SUCCESS_MESSAGE);
   } else {
-    toast.error(message || INTERNAL_SERVER_ERROR);
+    toast.error(newMessage || INTERNAL_SERVER_ERROR);
   }
 };

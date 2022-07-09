@@ -1,4 +1,4 @@
-import NotFoundContainer from '~/containers/NotFoundContainer/NotFoundContainer';
+import NotFoundContainer from '~/containers/NotFoundContainer';
 import Head from 'next/head';
 import type { NextPage } from 'next';
 

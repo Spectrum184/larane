@@ -1,4 +1,4 @@
-import ChatContainer from '~/containers/ChatContainer/ChatContainer';
+import ChatContainer from '~/containers/ChatContainer';
 import { userService } from '~/services';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const NotFoundContainer: FC = () => {
   return (
     <Layout showFooter={false} showHeader={false} showSidebar={false}>
-      <div className='bg-black text-white'>
+      <div className='text-white dark:bg-slate-800'>
         <div className='flex h-screen'>
           <div className='m-auto text-center'>
             <div>
@@ -268,11 +268,11 @@ const NotFoundContainer: FC = () => {
                 </defs>
               </svg>
             </div>
-            <p className='text-sm md:text-base text-yellow-300 p-2 mb-4'>
+            <p className='text-sm md:text-base text-red-500 p-2 mb-4'>
               Don&apos;t have nothing here!
             </p>
-            <Link href='/'>
-              <a className='bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent'>
+            <Link href='/login'>
+              <a className='bg-transparent hover:bg-red-400 text-red-500 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-red-500 hover:border-transparent'>
                 Back home
               </a>
             </Link>

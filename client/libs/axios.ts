@@ -1,6 +1,11 @@
 import { BACKEND_URL } from '~/constants';
 import Axios, { AxiosError } from 'axios';
 
+interface IHandleError {
+  status: number;
+  data: any;
+}
+
 export const axios = Axios.create({
   baseURL: BACKEND_URL,
   headers: {
@@ -9,7 +14,7 @@ export const axios = Axios.create({
   withCredentials: true,
 });
 
-export const handleAxiosError = (error: unknown) => {
+export const handleAxiosError = (error: unknown): IHandleError => {
   const errors = error as Error | AxiosError;
   if (Axios.isAxiosError(errors)) {
     return {
@@ -19,7 +24,9 @@ export const handleAxiosError = (error: unknown) => {
   } else {
     return {
       status: 500,
-      data: errors.message,
+      data: {
+        message: errors.message,
+      },
     };
   }
 };

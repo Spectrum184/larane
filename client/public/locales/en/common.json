@@ -7,5 +7,7 @@
   "sidebar_user_group": "Users",
   "error_email": "Please enter correct email!",
   "error_password_not_null": "Password is required!",
-  "error_password": "Password must be {{min}} - {{max}} characters long"
+  "error_password": "Password must be {{min}} - {{max}} characters long",
+  "error_name_not_null": "Name is required!",
+  "error_confirm_password": "Confirm password is not match!"
 }

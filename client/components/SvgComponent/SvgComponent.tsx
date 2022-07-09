@@ -15,6 +15,7 @@ import {
   SpeakerIcon,
   SunIcon,
   UserGroupIcon,
+  UserIcon,
   VariableICon,
   XIcon,
 } from './Icon';
@@ -95,6 +96,10 @@ const SvgComponent: FC<PropsType> = ({ className, name = 'variable' }) => {
 
     case 'register':
       SvgComp = RegisterIcon;
+      break;
+
+    case 'user':
+      SvgComp = UserIcon;
       break;
 
     default:

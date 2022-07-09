@@ -1,2 +1,2 @@
 export type { IUser } from './user';
-export type { ILogin } from './auth';
+export type { ILogin, IRegister } from './auth';
