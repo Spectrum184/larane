@@ -21,15 +21,14 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   req,
 }) => {
-  const { status } = await userService.getUser(
-    req.headers.cookie,
-    req.cookies['XSRF-TOKEN']
-  );
+  const { status } = await userService.getUser(req.headers.cookie);
 
   if (status >= 400) {
     res.writeHead(302, { Location: '/login' });
     res.end();
   }
+
+  res.setHeader('Cache-Control', 's-maxage=86400');
 
   return {
     props: {

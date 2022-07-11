@@ -2,7 +2,8 @@ import Header from '../Header';
 import Footer from '../Footer';
 import SwitchTheme from '../SwitchTheme';
 import Sidebar from '../Sidebar';
-import React, { FC, useState } from 'react';
+import { useUser } from '~/hooks';
+import React, { FC, useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 interface PropsType {
@@ -19,6 +20,17 @@ const Layout: FC<PropsType> = ({
   showSidebar = true,
 }) => {
   const [theme, setTheme] = useState<boolean>(false);
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user?.theme) {
+      if (user.theme === 0) {
+        setTheme(true);
+      } else {
+        setTheme(false);
+      }
+    }
+  }, [user]);
 
   return (
     <div

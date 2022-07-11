@@ -13,6 +13,10 @@ import { useRouter } from 'next/router';
 import moment from 'moment';
 import type { AppProps } from 'next/app';
 
+NProgress.configure({
+  showSpinner: false,
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const getCsrfToken = useCallback(async () => await authService.getCsrf(), []);

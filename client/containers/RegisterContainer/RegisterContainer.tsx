@@ -26,7 +26,7 @@ const RegisterContainer: FC = () => {
     const { status, data } = await authService.register(dataRegister);
 
     if (status < 300) {
-      showToast(status, 'Register complete, please login!');
+      showToast(status, 'Register complete! Welcome to diamond apart!');
       router.push('/');
     } else {
       showToast(status, data.message);

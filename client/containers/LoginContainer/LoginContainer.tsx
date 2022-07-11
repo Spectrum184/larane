@@ -26,7 +26,7 @@ const LoginContainer: FC = () => {
     const { status, data } = await authService.login(dataRegister);
 
     if (status < 300) {
-      showToast(status, 'Login success!');
+      showToast(status, 'Login success! Welcome to diamond apart!');
       router.push('/');
     } else {
       showToast(status, data.message);

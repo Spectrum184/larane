@@ -1,1 +1,1 @@
-export { useUsers } from './userHooks';
+export { useUser } from './userHooks';
