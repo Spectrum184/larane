@@ -1,11 +1,15 @@
 import SidebarItem from './SidebarItem';
-import { ADMIN_ROUTER } from '~/constants';
+import { ADMIN_ROUTER, USER_ROUTER } from '~/constants';
+import { appStore } from '~/store';
 import React from 'react';
 
 const Sidebar = () => {
+  const user = appStore((state) => state.user);
+  const routes = user.role === 'BALL_BALL' ? USER_ROUTER : ADMIN_ROUTER;
+
   return (
     <div className='fixed left-0 flex flex-col w-24 px-2'>
-      {ADMIN_ROUTER.map((item, index) => (
+      {routes.map((item, index) => (
         <SidebarItem key={index} name={item.name} title={item.title} />
       ))}
     </div>

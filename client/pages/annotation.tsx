@@ -1,10 +1,19 @@
 import AnnotationContainer from '~/containers/AnnotationContainer';
 import { userService } from '~/services';
+import { appStore } from '~/store';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetServerSideProps } from 'next';
+import type {
+  NextPage,
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+} from 'next';
 
-const Annotation: NextPage = () => {
+const Annotation: NextPage<
+  InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ user }) => {
+  appStore((state) => state.setUser)(user);
+
   return (
     <>
       <Head>
@@ -20,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   req,
 }) => {
-  const { status } = await userService.getUser(req.headers.cookie);
+  const { status, data } = await userService.getUser(req.headers.cookie);
 
   res.setHeader('Cache-Control', 's-maxage=86400');
 
@@ -32,6 +41,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
+      user: data,
     },
   };
 };

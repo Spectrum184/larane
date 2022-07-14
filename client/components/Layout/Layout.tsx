@@ -2,8 +2,8 @@ import Header from '../Header';
 import Footer from '../Footer';
 import SwitchTheme from '../SwitchTheme';
 import Sidebar from '../Sidebar';
-import { useUser } from '~/hooks';
-import React, { FC, useEffect, useState } from 'react';
+import { appStore } from '~/store';
+import React, { FC } from 'react';
 import clsx from 'clsx';
 
 interface PropsType {
@@ -19,23 +19,12 @@ const Layout: FC<PropsType> = ({
   showFooter = true,
   showSidebar = true,
 }) => {
-  const [theme, setTheme] = useState<boolean>(false);
-  const { user } = useUser();
-
-  useEffect(() => {
-    if (user?.theme) {
-      if (user.theme === 0) {
-        setTheme(true);
-      } else {
-        setTheme(false);
-      }
-    }
-  }, [user]);
+  const user = appStore((state) => state.user);
 
   return (
     <div
       className={clsx('min-h-screen flex flex-col', {
-        dark: theme,
+        dark: user.theme === 0,
       })}
     >
       {showHeader && <Header />}
@@ -54,7 +43,7 @@ const Layout: FC<PropsType> = ({
           {children}
         </div>
       </div>
-      <SwitchTheme theme={theme} setTheme={setTheme} />
+      <SwitchTheme />
       {showFooter && <Footer />}
     </div>
   );

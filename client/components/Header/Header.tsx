@@ -1,13 +1,13 @@
 import SvgComponent from '../SvgComponent';
-import { useUser } from '~/hooks';
+import { appStore } from '~/store';
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const Header: FC = () => {
-  const router = useRouter();
   const [searchValue, setSearchValue] = useState<string>('');
-  const { user } = useUser();
+  const user = appStore((state) => state.user);
+  const router = useRouter();
 
   return (
     <div className='px-6 md:px-6 xl:px-9 flex justify-between items-center h-16 border-b-[1px] fixed top-0 left-0 w-full shadow-sm'>
@@ -45,11 +45,7 @@ const Header: FC = () => {
         </div>
         <span className='relative h-9 w-9 cursor-pointer rounded-full border hover:opacity-80'>
           <Image
-            src={
-              user && user.avatar
-                ? '/images/avatar.jpeg'
-                : user?.avatar || '/images/avatar.jpeg'
-            }
+            src={user.avatar ? user.avatar : '/images/avatar.jpeg'}
             alt='avatar'
             className='rounded-full hidden'
             layout='fill'

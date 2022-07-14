@@ -20,9 +20,9 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   req,
 }) => {
-  const resData = await userService.getUser(req.headers.cookie);
+  const { status, data } = await userService.getUser(req.headers.cookie);
 
-  if (resData.status <= 300 && resData.data) {
+  if (status <= 300 && data) {
     res.writeHead(302, { Location: '/' });
     res.end();
   }
@@ -30,6 +30,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
+      user: data,
     },
   };
 };
