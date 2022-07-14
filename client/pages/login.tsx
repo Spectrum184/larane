@@ -27,8 +27,6 @@ export const getServerSideProps: GetServerSideProps = async ({
     res.end();
   }
 
-  res.setHeader('Cache-Control', 's-maxage=86400');
-
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),

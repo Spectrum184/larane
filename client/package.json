@@ -8,7 +8,6 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install",
     "lint:fix": "next lint --fix",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css,scss}'"
   },
@@ -36,7 +35,6 @@
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.0",
     "next-sitemap": "^3.1.7",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
