@@ -70,7 +70,7 @@ const SvgComponent: FC<PropsType> = ({ className, name = 'variable' }) => {
       SvgComp = UserGroupIcon;
       break;
 
-    case 'notify':
+    case 'post':
       SvgComp = SpeakerIcon;
       break;
 

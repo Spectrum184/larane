@@ -36,7 +36,7 @@ const LoginContainer: FC = () => {
   return (
     <Layout showFooter={false} showHeader={false} showSidebar={false}>
       <div className='bg-white sm:bg-gray-200 min-h-screen w-screen flex flex-col justify-center items-center dark:bg-slate-800'>
-        <div className='bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8 rounded-sm dark:bg-slate-700'>
+        <div className='bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-[500px] h-screen sm:h-auto py-8 rounded-sm dark:bg-slate-700'>
           <div className='text-center w-full font-bold text-3xl text-gray-600 p-4 dark:text-gray-200'>
             LOGIN
           </div>

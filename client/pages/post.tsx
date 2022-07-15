@@ -9,7 +9,7 @@ import type {
   InferGetServerSidePropsType,
 } from 'next';
 
-const Notify: NextPage<
+const Post: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ user }) => {
   appStore((state) => state.setUser)(user);
@@ -47,4 +47,4 @@ export const getServerSideProps: GetServerSideProps = async ({
   };
 };
 
-export default Notify;
+export default Post;

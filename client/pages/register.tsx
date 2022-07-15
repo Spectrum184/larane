@@ -1,10 +1,19 @@
 import RegisterContainer from '~/containers/RegisterContainer';
 import { userService } from '~/services';
+import { appStore } from '~/store';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetServerSideProps } from 'next';
+import type {
+  NextPage,
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+} from 'next';
 
-const Register: NextPage = () => {
+const Register: NextPage<
+  InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ user }) => {
+  appStore((state) => state.setUser)(user);
+
   return (
     <>
       <Head>
