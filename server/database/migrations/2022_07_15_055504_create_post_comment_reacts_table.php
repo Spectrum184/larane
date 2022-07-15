@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotifiesTable extends Migration
+class CreatePostCommentReactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateNotifiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifies', function (Blueprint $table) {
+        Schema::create('post_comment_reacts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100)->nullable(false);
-            $table->text('content')->nullable();
+            $table->foreignId("post_comment_id")->constrained("posts");
+            $table->foreignId("user_id")->constrained("users");
+            $table->tinyInteger('reaction')->default(0);
             $table->timestamps();
-            $table->foreignId('creator_id')->constrained('users');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateNotifiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifies');
+        Schema::dropIfExists('post_comment_reacts');
     }
 }
