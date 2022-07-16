@@ -15,6 +15,10 @@ class CreateRulesTable extends Migration
     {
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable(false);
+            $table->tinyInteger('type');
+            $table->text('content')->nullable();
+            $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
             $table->timestamps();
         });
     }

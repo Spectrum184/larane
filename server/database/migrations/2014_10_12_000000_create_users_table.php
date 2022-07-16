@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('phone', 100)->nullable();
             $table->string('facebook', 200)->nullable();
             $table->string('website', 200)->nullable();
-            $table->dateTime('birthday')->nullable();
+            $table->date('birthday')->nullable();
             $table->tinyInteger('is_active')->default(1);
             $table->rememberToken();
             $table->timestamps();

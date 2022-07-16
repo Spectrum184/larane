@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title')->nullable(false);
             $table->text('content')->nullable()->fullText("content");
             $table->timestamps();
-            $table->foreignId('creator_id')->constrained('users')->onDelete("cascade");
+            $table->foreignId('user_id')->constrained('users')->onDelete("cascade");
         });
     }
 
