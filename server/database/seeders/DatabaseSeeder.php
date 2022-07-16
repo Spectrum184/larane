@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Participant;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +18,12 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             TaskSeeder::class,
             PostSeeder::class,
+            RuleSeeder::class,
+            PostCommentSeeder::class,
+            PostCommentReactSeeder::class,
+            ConversationSeeder::class,
+            MessageSeeder::class,
+            ParticipantSeeder::class,
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Rule;
 use Illuminate\Database\Seeder;
 
 class RuleSeeder extends Seeder
@@ -13,6 +14,6 @@ class RuleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Rule::factory(100)->create();
     }
 }

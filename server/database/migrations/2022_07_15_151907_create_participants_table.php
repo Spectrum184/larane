@@ -15,6 +15,9 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
+            $table->foreignId("conversation_id")->constrained("conversations")->onDelete("cascade");
+            $table->tinyInteger("banned")->default(0);
             $table->timestamps();
         });
     }

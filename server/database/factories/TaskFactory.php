@@ -14,11 +14,11 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            "title" => $this->faker->sentence(255),
+            "title" => $this->faker->sentence(20),
             "content" => $this->faker->text(200),
             "work_date" => $this->faker->date(),
             "done" => $this->faker->randomElement([0, 1]),
-            "user_id" => $this->faker->numberBetween(0, 101)
+            "user_id" => $this->faker->numberBetween(1, 99)
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PostCommentReact;
 use Illuminate\Database\Seeder;
 
 class PostCommentReactSeeder extends Seeder
@@ -13,6 +14,6 @@ class PostCommentReactSeeder extends Seeder
      */
     public function run()
     {
-        //
+        PostCommentReact::factory(50)->create();
     }
 }

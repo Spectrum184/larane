@@ -14,7 +14,9 @@ class ConversationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "title" => $this->faker->word(),
+            "creator_id" => $this->faker->numberBetween(1, 100),
+            "theme" => $this->faker->numberBetween(1, 10),
         ];
     }
 }

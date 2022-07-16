@@ -14,7 +14,9 @@ class MessageFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "message" => $this->faker->text(),
+            "user_id" => $this->faker->numberBetween(1, 100),
+            "conversation_id" => $this->faker->numberBetween(1, 100),
         ];
     }
 }

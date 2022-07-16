@@ -14,7 +14,9 @@ class PostCommentReactFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "post_comment_id" => $this->faker->numberBetween(1, 100),
+            "user_id" => $this->faker->numberBetween(1, 100),
+            "reaction" => $this->faker->numberBetween(0, 5),
         ];
     }
 }

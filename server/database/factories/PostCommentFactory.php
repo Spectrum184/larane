@@ -14,7 +14,9 @@ class PostCommentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "post_id" => $this->faker->numberBetween(1, 100),
+            "user_id" => $this->faker->numberBetween(1, 100),
+            "content" => $this->faker->text(),
         ];
     }
 }
