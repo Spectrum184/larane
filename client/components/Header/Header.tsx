@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 const Header: FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');
-  const user = appStore((state) => state.user);
+  const { user } = appStore((state) => state);
   const router = useRouter();
 
   return (

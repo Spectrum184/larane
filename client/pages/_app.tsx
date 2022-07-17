@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const handleRouteStart = () => NProgress.start();
     const handleRouteDone = () => NProgress.done();
-    dayjs.locale(router.locale);
+    dayjs.locale(router.locale || 'en');
     router.events.on('routeChangeStart', handleRouteStart);
     router.events.on('routeChangeComplete', handleRouteDone);
     router.events.on('routeChangeError', handleRouteDone);

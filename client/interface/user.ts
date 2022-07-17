@@ -2,16 +2,16 @@ export interface IUser {
   name: string;
   email: string;
   id?: number;
-  createAt?: string;
+  create_at?: string;
   birthday?: Date;
   facebook?: string;
   sex: string;
-  roomNo?: number;
+  room_no?: number;
   status?: string;
   role: string;
   theme: number;
   website?: string;
   avatar: string;
-  isActive: number;
+  is_active: number;
   phone?: string;
 }

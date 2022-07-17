@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
-use App\Http\Service\TaskService;
+use App\Http\Resources\TaskResource;
+use App\Http\Services\TaskService;
 use App\Models\Task;
 
 class TaskController extends Controller

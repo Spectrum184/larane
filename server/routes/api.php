@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return new UserResource($request->user());
+    return $request->user();
 });
 
 //Router of task
-Route::middleware(["auth:sanctum"])->prefix("tasks")->name("tasks.")->controller(TaskController::class)->group(function () {
+Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("tasks")->name("tasks.")->controller(TaskController::class)->group(function () {
     Route::get("/month/{date}", "getTaskInMonth")->name("current.month");
 });

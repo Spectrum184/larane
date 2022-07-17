@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Service;
+namespace App\Http\Services;
 
+use App\Http\Resources\TaskResource;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+
 
 class TaskService
 {
@@ -14,10 +16,17 @@ class TaskService
      */
     public function getTaskInMonth(string $date)
     {
-        $currentDate = Carbon::parse($date);
+        $start_of_month = Carbon::create($date)->startOfMonth();
+        $end_of_month = Carbon::create($date)->endOfMonth();
 
-        $taskArr = DB::table("tasks")->whereBetween("work_date", [$currentDate->startOfMonth(), $currentDate->endOfMonth()])->leftJoin("users", "tasks.user_id", "=", "users.id")->get();
+        $task_arr = DB::table("tasks")->whereBetween("work_date", [$start_of_month, $end_of_month])->leftJoin("users", "tasks.user_id", "=", "users.id")->get();
 
-        return $taskArr;
+        if ($task_arr->count() > 0) {
+            $task_arr = collect($task_arr)->map(function ($data) {
+                return new TaskResource($data);
+            });
+        }
+
+        return $task_arr;
     }
 }

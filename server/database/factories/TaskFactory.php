@@ -15,11 +15,11 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            "title" => $this->faker->sentence(20),
+            "title" => $this->faker->text(20),
             "content" => $this->faker->text(200),
-            "work_date" => $this->faker->dateTimeBetween('-1 month', '+1 month'),
+            "work_date" => $this->faker->dateTimeBetween('-5 week', '+5 week'),
             "done" => $this->faker->randomElement([0, 1]),
-            "type" => $this->faker->numberBetween(1, 5),
+            "type" => $this->faker->numberBetween(0, 5),
             "user_id" => $this->faker->numberBetween(1, 99)
         ];
     }

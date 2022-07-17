@@ -4,7 +4,7 @@ import { appStore } from '~/store';
 import React from 'react';
 
 const Sidebar = () => {
-  const user = appStore((state) => state.user);
+  const { user } = appStore((state) => state);
   const routes = user.role === 'BALL_BALL' ? USER_ROUTER : ADMIN_ROUTER;
 
   return (
