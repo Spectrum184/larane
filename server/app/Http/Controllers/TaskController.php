@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Service\TaskService;
 use App\Models\Task;
 
 class TaskController extends Controller
 {
+    protected $taskService;
+
+    public function __construct(TaskService $taskService)
+    {
+        $this->taskService = $taskService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -82,5 +90,16 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         //
+    }
+
+    /**
+     * Get tasks by at current month.
+     *
+     * @param  \App\Models\Task  $task
+     * @return \Illuminate\Http\Response
+     */
+    public function getTaskInMonth(string $date)
+    {
+        return $this->taskService->getTaskInMonth($date);
     }
 }

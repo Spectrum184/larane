@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('content')->nullable();
             $table->date('work_date')->nullable();
             $table->tinyInteger('done')->default(0);
+            $table->tinyInteger('type')->default(0);
             $table->timestamps();
             $table->foreignId('user_id')->constrained('users')->onDelete("cascade");
         });

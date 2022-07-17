@@ -1,6 +1,6 @@
 import { IUser } from './../interface/user';
 import { handleAxiosError } from '~/libs';
-import { FRONTEND_URL } from '~/constants';
+import { FRONTEND_URL, API_V1 } from '~/constants';
 import { AxiosInstance } from 'axios';
 
 class UserService {
@@ -14,7 +14,7 @@ class UserService {
     status: number;
   }> {
     try {
-      const res = await this.axios.get('api/user', {
+      const res = await this.axios.get(`${API_V1}/user`, {
         headers: {
           cookie: cookies || '',
           accept: 'application/json',

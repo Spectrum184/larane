@@ -20,7 +20,7 @@ const initialState: PropTypes = {
     role: 'BALL_BALL',
     theme: 1,
     avatar: '',
-    is_active: 1,
+    isActive: 1,
   },
 };
 

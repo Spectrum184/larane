@@ -32,6 +32,8 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const { status, data } = await userService.getUser(req.headers.cookie);
 
+  console.log(data, status);
+
   res.setHeader('Cache-Control', 's-maxage=86400');
 
   if (status >= 400) {

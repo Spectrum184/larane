@@ -15,5 +15,6 @@ export const ADMIN_ROUTER = [
 ];
 export const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || '';
 export const FRONTEND_URL = process.env.NEXT_CLIENT_URL || '';
+export const API_V1 = 'api/v1';
 export const INTERNAL_SERVER_ERROR = 'Internal Server Error';
 export const SUCCESS_MESSAGE = 'Success';

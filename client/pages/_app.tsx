@@ -1,8 +1,9 @@
 import '../styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'nprogress/nprogress.css';
-import 'moment/locale/vi';
-import 'moment/locale/ja';
+import 'dayjs/locale/en';
+import 'dayjs/locale/ja';
+import 'dayjs/locale/vi';
 
 import { authService } from '~/services';
 import { appWithTranslation } from 'next-i18next';
@@ -10,7 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import { useCallback, useEffect } from 'react';
 import NProgress from 'nprogress';
 import { useRouter } from 'next/router';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import type { AppProps } from 'next/app';
 
 NProgress.configure({
@@ -24,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const handleRouteStart = () => NProgress.start();
     const handleRouteDone = () => NProgress.done();
-    moment.locale(router.locale);
+    dayjs.locale(router.locale);
     router.events.on('routeChangeStart', handleRouteStart);
     router.events.on('routeChangeComplete', handleRouteDone);
     router.events.on('routeChangeError', handleRouteDone);

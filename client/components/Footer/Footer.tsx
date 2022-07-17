@@ -1,12 +1,12 @@
 import SvgComponent from '../SvgComponent';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { FC } from 'react';
 
 const Footer: FC = () => {
   return (
     <div className='w-full flex items-center justify-center flex-col h-20 bg-zinc-300'>
       <p className='font-light text-sm'>
-        ©2022-{moment().format('YYYY')} Dang Anh Tu. Make Diamond great again!
+        ©2022-{dayjs().format('YYYY')} Dang Anh Tu. Make Diamond great again!
       </p>
       <div className='flex'>
         <a
