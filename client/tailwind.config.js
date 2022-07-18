@@ -9,6 +9,9 @@ module.exports = {
       minHeight: {
         layout: 'calc(100vh - 144px)',
       },
+      height: {
+        'chat-page': 'calc(100vh - 64px)',
+      },
     },
   },
   plugins: [],

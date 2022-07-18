@@ -28,6 +28,16 @@ class UserSeeder extends Seeder
             "status" => "I'm unstoppable!"
         ]);
 
+        DB::table("users")->insert([
+            'name' => "Tu",
+            'email' => "anhtudang95@gmail.com",
+            'email_verified_at' => now(),
+            'password' => Hash::make("anhtudeptrai"),
+            'remember_token' => Str::random(10),
+            'role' => "ADMIN",
+            "status" => "Tao la Bo"
+        ]);
+
         // seed random data
         User::factory(100)->create();
     }
