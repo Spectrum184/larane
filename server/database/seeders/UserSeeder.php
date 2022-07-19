@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -25,7 +26,10 @@ class UserSeeder extends Seeder
             'password' => Hash::make("thanh1804"),
             'remember_token' => Str::random(10),
             'role' => "ADMIN",
-            "status" => "I'm unstoppable!"
+            "status" => "I'm unstoppable!",
+            "birthday" => Carbon::createFromFormat("Y-m-d", "1995-04-18"),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
         ]);
 
         // seed random data

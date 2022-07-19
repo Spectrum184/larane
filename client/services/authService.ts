@@ -8,11 +8,11 @@ class AuthService {
     this.axios = axios;
   }
 
-  async login(data: ILogin) {
+  async login(dataLogin: ILogin) {
     try {
-      const res = await this.axios.post('login', data);
+      const { data, status } = await this.axios.post('login', dataLogin);
 
-      return { status: res.status, data: res.data };
+      return { status, data };
     } catch (error) {
       return handleAxiosError(error);
     }
@@ -26,16 +26,16 @@ class AuthService {
     }
   }
 
-  async register(data: IRegister) {
+  async register(dataRegister: IRegister) {
     try {
-      const res = await this.axios.post('register', {
-        ...data,
-        password_confirmation: data.confirmPassword,
+      const { data, status } = await this.axios.post('register', {
+        ...dataRegister,
+        password_confirmation: dataRegister.confirmPassword,
       });
 
       return {
-        status: res.status,
-        data: res.data,
+        status,
+        data,
       };
     } catch (error) {
       return handleAxiosError(error);

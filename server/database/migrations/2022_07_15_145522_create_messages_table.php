@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->string('emoji', 100)->nullable();
             $table->string("image_link")->nullable();
             $table->string("attack_file")->nullable();
+            $table->tinyInteger("seen")->nullable(false)->default(0);
             $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
             $table->foreignId("conversation_id")->constrained("conversations")->onDelete("cascade");
             $table->timestamps();

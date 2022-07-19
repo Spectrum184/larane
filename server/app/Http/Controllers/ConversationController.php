@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreConversationRequest;
 use App\Http\Requests\UpdateConversationRequest;
 use App\Models\Conversation;
+use ConversationService;
+use GuzzleHttp\Psr7\Request;
 
 class ConversationController extends Controller
 {
+    protected $conversationService;
+
+    public function __construct(ConversationService $conversationService)
+    {
+        $this->conversationService = $conversationService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -82,5 +91,16 @@ class ConversationController extends Controller
     public function destroy(Conversation $conversation)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Conversation  $conversation
+     * @return \Illuminate\Http\Response
+     */
+    public function getAllConversation(int $user_id)
+    {
+        return $this->conversationService->getAllConversation($user_id);
     }
 }
