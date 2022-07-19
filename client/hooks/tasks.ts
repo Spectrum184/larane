@@ -3,7 +3,7 @@ import { ITask } from '~/interface/task';
 import useSWR from 'swr';
 
 interface IUserTask {
-  tasks: Array<ITask>;
+  tasks?: Array<ITask>;
   isLoading: boolean;
   isError: any;
 }

@@ -14,7 +14,7 @@ class UserService {
     status: number;
   }> {
     try {
-      const res = await this.axios.get(`${API_V1}/user`, {
+      const { data, status } = await this.axios.get(`${API_V1}/user`, {
         headers: {
           cookie: cookies || '',
           accept: 'application/json',
@@ -22,7 +22,15 @@ class UserService {
         },
       });
 
-      return { data: res.data, status: res.status };
+      return {
+        data: {
+          ...data,
+          createAt: data.created_at,
+          roomNo: data.room_no,
+          isActive: data.is_active,
+        },
+        status: status,
+      };
     } catch (error) {
       return handleAxiosError(error);
     }

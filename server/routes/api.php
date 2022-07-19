@@ -24,3 +24,14 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("tasks")->name("tasks.")->controller(TaskController::class)->group(function () {
     Route::get("/month/{date}", "getTaskInMonth")->name("current.month");
 });
+
+
+//Router of message
+Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("messages")->name("messages.")->controller(MessageController::class)->group(function () {
+    Route::get("/month/{date}", "getTaskInMonth")->name("current.month");
+});
+
+//Router of message
+Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("conversations")->name("conversations.")->controller(ConversationController::class)->group(function () {
+    Route::get("/{user_id}", "getTaskInMonth")->name("all.conversation");
+});

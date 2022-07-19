@@ -1,4 +1,5 @@
 import { API_V1 } from '~/constants';
+import { ITask } from '~/interface/task';
 import { AxiosInstance } from 'axios';
 import dayjs from 'dayjs';
 
@@ -8,17 +9,20 @@ class TaskService {
     this.axios = axios;
   }
 
-  async getTaskByMonth(date?: string) {
+  async getTaskByMonth(date?: string): Promise<Array<ITask> | undefined> {
     try {
       const currentDate = date ? date : dayjs().format('YYYY-MM-DD');
 
-      const res = await this.axios.get(`${API_V1}/tasks/month/${currentDate}`, {
-        headers: {
-          accept: 'application/json',
-        },
-      });
+      const { data } = await this.axios.get(
+        `${API_V1}/tasks/month/${currentDate}`,
+        {
+          headers: {
+            accept: 'application/json',
+          },
+        }
+      );
 
-      return res.data;
+      return data;
     } catch (error) {
       throw error;
     }
