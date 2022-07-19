@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\TaskController;
-use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +33,5 @@ Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("messages")->name("m
 
 //Router of message
 Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("conversations")->name("conversations.")->controller(ConversationController::class)->group(function () {
-    Route::get("/{user_id}", "getTaskInMonth")->name("all.conversation");
+    Route::get("/{user_id}", "getAllConversation")->name("all.conversation");
 });

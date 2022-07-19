@@ -10,7 +10,7 @@ module.exports = {
         layout: 'calc(100vh - 144px)',
       },
       height: {
-        'chat-page': 'calc(100vh - 64px)',
+        'chat-page': 'calc(100vh - 80px)',
       },
     },
   },
