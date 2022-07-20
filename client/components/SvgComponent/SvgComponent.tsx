@@ -18,6 +18,7 @@ import {
   UserIcon,
   VariableICon,
   XIcon,
+  PictureIcon,
 } from './Icon';
 import React, { FC } from 'react';
 
@@ -100,6 +101,14 @@ const SvgComponent: FC<PropsType> = ({ className, name = 'variable' }) => {
 
     case 'user':
       SvgComp = UserIcon;
+      break;
+
+    case 'picture':
+      SvgComp = PictureIcon;
+      break;
+
+    case 'picture':
+      SvgComp = PictureIcon;
       break;
 
     default:
