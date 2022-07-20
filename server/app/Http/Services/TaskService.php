@@ -2,7 +2,6 @@
 
 namespace App\Http\Services;
 
-use App\Http\Resources\TaskResource;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +22,17 @@ class TaskService
 
         if ($task_arr->count() > 0) {
             $task_arr = collect($task_arr)->map(function ($data) {
-                return new TaskResource($data);
+                return [
+                    "id" => $data->id,
+                    "title" => $data->title,
+                    "content" => $data->content,
+                    "done" => $data->done,
+                    "workDate" => $data->work_date,
+                    "type" => $data->type,
+                    "createdAt" => $data->created_at,
+                    "userId" => $data->user_id,
+                    "userName" => $data->name,
+                ];
             });
         }
 

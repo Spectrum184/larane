@@ -53,9 +53,9 @@ class ConversationController extends Controller
      * @param  \App\Models\Conversation  $conversation
      * @return \Illuminate\Http\Response
      */
-    public function show(Conversation $conversation)
+    public function getConversationDetail(int $conversation_id)
     {
-        //
+        return $this->conversationService->getConversation($conversation_id);
     }
 
     /**

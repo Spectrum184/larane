@@ -34,4 +34,5 @@ Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("messages")->name("m
 //Router of message
 Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("conversations")->name("conversations.")->controller(ConversationController::class)->group(function () {
     Route::get("/{user_id}", "getAllConversation")->name("all.conversation");
+    Route::get("/detail/{conversation_id}")->name("detail.conversation");
 });

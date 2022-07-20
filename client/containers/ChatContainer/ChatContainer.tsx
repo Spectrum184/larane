@@ -1,9 +1,16 @@
 import ConversationContainer from './components/ConversationContainer';
 import ChatBoxContainer from './components/ChatBoxContainer';
 import Layout from '~/components/Layout';
+import { useConversations } from '~/hooks';
+import { appStore } from '~/store';
 import React, { FC } from 'react';
 
 const ChatContainer: FC = () => {
+  const { user } = appStore((state) => state);
+
+  const { conversations } = useConversations({ userId: user.id });
+  console.log(conversations);
+
   return (
     <Layout showFooter={false}>
       <div className='h-chat-page w-full flex bg-gray-100 dark:bg-gray-900 overflow-hidden rounded-xl'>
