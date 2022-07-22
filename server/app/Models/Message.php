@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'message',
+        'emoji',
+        'image_link',
+        "attack_file",
+        "seen",
+        "user_id",
+        "conversation_id"
+    ];
 }

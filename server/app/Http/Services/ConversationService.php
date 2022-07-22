@@ -17,15 +17,7 @@ class ConversationService
         $conversation_arr = DB::table('conversations')->leftJoin("participants", "conversations.id", "=", "participants.conversation_id")->where("participants.user_id", $user_id)->get();
 
         if ($conversation_arr->count() > 0) {
-            $conversation_arr = collect($conversation_arr)->map(function ($data) {
-                return [
-                    "id" => $data->id,
-                    "lastMessage" => $data->last_message,
-                    "lastMessageAt" => $data->last_message_at,
-                    "title" => $data->title,
-                    "image" => $data->image,
-                ];
-            });
+            return ConversationResource::collection($conversation_arr);
         }
 
         return $conversation_arr;
@@ -38,20 +30,25 @@ class ConversationService
      */
     public function getConversation(int $conversation_id)
     {
-        $conversation_arr = DB::table('conversations')->leftJoin("participants", "conversations.id", "=", "participants.conversation_id")->where("conversations.id", $conversation_id)->get();
+        $conversation = DB::table('conversations')->where("conversations.id", $conversation_id)->get();
 
-        // if ($conversation_arr->count() > 0) {
-        //     $conversation_arr = collect($conversation_arr)->map(function ($data) {
-        //         return [
-        //             "id" => $data->id,
-        //             "lastMessage" => $data->last_message,
-        //             "lastMessageAt" => $data->last_message_at,
-        //             "title" => $data->title,
-        //             "image" => $data->image,
-        //         ];
-        //     });
-        // }
+        return new ConversationResource($conversation);
+    }
 
-        return $conversation_arr;
+
+    /**
+     * Get conversation by name 
+     * 
+     * @param string $name
+     */
+    public function getConversationByName(string $name)
+    {
+        $conversation = DB::table('conversations')->where("conversations.id", "like", "%" . $name . "%")->get();
+
+        if (count($conversation) > 0) {
+            return ConversationResource::collection($conversation);
+        }
+
+        return  $conversation;
     }
 }
