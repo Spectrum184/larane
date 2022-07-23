@@ -9,7 +9,7 @@ import type {
   InferGetServerSidePropsType,
 } from 'next';
 
-const Chat: NextPage<
+const Messenger: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ user }) => {
   appStore((state) => state.setUser)(user);
@@ -45,4 +45,4 @@ export const getServerSideProps: GetServerSideProps = async ({
   };
 };
 
-export default Chat;
+export default Messenger;
