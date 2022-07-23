@@ -22,17 +22,18 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 //Router of task
 Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("tasks")->name("tasks.")->controller(TaskController::class)->group(function () {
-    Route::get("/month/{date}", "getTaskInMonth")->name("current.month");
+    Route::get("/month/{date}", "getTaskInMonth")->name("get.current.month");
 });
 
 
 //Router of message
 Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("messages")->name("messages.")->controller(MessageController::class)->group(function () {
-    Route::get("/month/{date}", "getTaskInMonth")->name("current.month");
+    Route::get("/{conversation_id}", "index")->name("get.conversations");
+    Route::post("", "store")->name("post.message");
+    Route::delete("/{id}", "destroy")->name("delete.message");
 });
 
-//Router of message
+//Router of conversations
 Route::middleware(["auth:sanctum", "throttle:6,1"])->prefix("conversations")->name("conversations.")->controller(ConversationController::class)->group(function () {
-    Route::get("/{user_id}", "getAllConversation")->name("all.conversation");
-    Route::get("/detail/{conversation_id}")->name("detail.conversation");
+    Route::get("/{user_id}", "getAllConversation")->name("get.all.conversation");
 });
