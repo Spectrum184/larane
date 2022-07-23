@@ -10,7 +10,12 @@ const Sidebar = () => {
   return (
     <div className='fixed left-0 flex flex-col w-24 px-2'>
       {routes.map((item, index) => (
-        <SidebarItem key={index} name={item.name} title={item.title} />
+        <SidebarItem
+          key={index}
+          name={item.name}
+          title={item.title}
+          path={item.path}
+        />
       ))}
     </div>
   );

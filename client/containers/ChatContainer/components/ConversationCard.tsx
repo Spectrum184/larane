@@ -76,7 +76,7 @@ const ConversationCard = () => {
           <div className='w-16 h-16 relative flex flex-shrink-0'>
             <Image
               className='shadow-md rounded-full w-full h-full object-cover'
-              src='/images/avatar.jpeg'
+              src='/images/conversation.png'
               alt='avatar'
               layout='fill'
             />
