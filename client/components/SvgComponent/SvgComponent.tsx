@@ -19,6 +19,17 @@ import {
   VariableICon,
   XIcon,
   PictureIcon,
+  NewChatIcon,
+  TellCallIcon,
+  VideoCallIcon,
+  ConversationInfIcon,
+  ViewMoreIcon,
+  ReplyIcon,
+  EmotionsIcon,
+  MoreActionsIcon,
+  CameraIcon,
+  MicroIcon,
+  LikeIcon,
 } from './Icon';
 import React, { FC } from 'react';
 
@@ -107,8 +118,52 @@ const SvgComponent: FC<PropsType> = ({ className, name = 'variable' }) => {
       SvgComp = PictureIcon;
       break;
 
-    case 'picture':
-      SvgComp = PictureIcon;
+    case 'new-chat':
+      SvgComp = NewChatIcon;
+      break;
+
+    case 'search':
+      SvgComp = SearchIcon;
+      break;
+
+    case 'tellcall':
+      SvgComp = TellCallIcon;
+      break;
+
+    case 'videocall':
+      SvgComp = VideoCallIcon;
+      break;
+
+    case 'conversation-inf':
+      SvgComp = ConversationInfIcon;
+      break;
+
+    case 'viewmore':
+      SvgComp = ViewMoreIcon;
+      break;
+
+    case 'reply':
+      SvgComp = ReplyIcon;
+      break;
+
+    case 'emotions':
+      SvgComp = EmotionsIcon;
+      break;
+
+    case 'more-actions':
+      SvgComp = MoreActionsIcon;
+      break;
+
+    case 'camera':
+      SvgComp = CameraIcon;
+      break;
+
+    case 'micro':
+      SvgComp = MicroIcon;
+      break;
+
+    case 'like':
+      SvgComp = LikeIcon;
       break;
 
     default:

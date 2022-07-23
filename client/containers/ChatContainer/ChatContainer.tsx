@@ -1,9 +1,9 @@
 import ConversationContainer from './components/ConversationContainer';
 import ChatBoxContainer from './components/ChatBoxContainer';
+import React, { FC } from 'react';
 import Layout from '~/components/Layout';
 import { useConversations } from '~/hooks';
 import { appStore } from '~/store';
-import React, { FC } from 'react';
 
 const ChatContainer: FC = () => {
   const { user } = appStore((state) => state);
