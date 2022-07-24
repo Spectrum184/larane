@@ -126,11 +126,11 @@ const SvgComponent: FC<PropsType> = ({ className, name = 'variable' }) => {
       SvgComp = SearchIcon;
       break;
 
-    case 'tellcall':
+    case 'tell-call':
       SvgComp = TellCallIcon;
       break;
 
-    case 'videocall':
+    case 'video-call':
       SvgComp = VideoCallIcon;
       break;
 
@@ -138,7 +138,7 @@ const SvgComponent: FC<PropsType> = ({ className, name = 'variable' }) => {
       SvgComp = ConversationInfIcon;
       break;
 
-    case 'viewmore':
+    case 'view-more':
       SvgComp = ViewMoreIcon;
       break;
 

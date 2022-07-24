@@ -486,7 +486,7 @@ export function CameraIcon(className: string) {
       xmlns='http://www.w3.org/2000/svg'
       className={className}
       fill='none'
-      viewBox='0 0 24 24'
+      viewBox='0 0 20 20'
       stroke='currentColor'
     >
       <path
@@ -507,7 +507,7 @@ export function MicroIcon(className: string) {
       xmlns='http://www.w3.org/2000/svg'
       className={className}
       fill='none'
-      viewBox='0 0 24 24'
+      viewBox='0 0 20 20'
       stroke='currentColor'
     >
       <path
@@ -528,7 +528,7 @@ export function LikeIcon(className: string) {
       xmlns='http://www.w3.org/2000/svg'
       className={className}
       fill='none'
-      viewBox='0 0 24 24'
+      viewBox='0 0 20 20'
       stroke='currentColor'
     >
       <path

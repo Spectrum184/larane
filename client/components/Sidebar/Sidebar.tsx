@@ -8,7 +8,7 @@ const Sidebar = () => {
   const routes = user.role === 'BALL_BALL' ? USER_ROUTER : ADMIN_ROUTER;
 
   return (
-    <div className='fixed left-0 flex flex-col w-24 px-2'>
+    <div className='fixed left-0 flex flex-col w-24 px-2 dark:text-white'>
       {routes.map((item, index) => (
         <SidebarItem
           key={index}

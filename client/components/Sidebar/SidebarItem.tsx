@@ -19,7 +19,7 @@ const SidebarItem: FC<PropsType> = ({ name, title, path }) => {
       className={clsx(
         'w-full h-20 my-2 flex items-center flex-col justify-center rounded-xl cursor-pointer',
         {
-          'bg-gray-200':
+          'bg-gray-200 dark:bg-gray-800':
             name === 'home'
               ? router.pathname === '/'
               : router.pathname.includes(name),

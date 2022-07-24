@@ -1,16 +1,16 @@
-import React from 'react';
 import SvgComponent from '~/components/SvgComponent';
+import React from 'react';
 
 const MessageItem = () => (
   <div className='flex items-center flex-row-reverse group'>
-    <p className='px-6 py-3 rounded-t-full rounded-l-full bg-blue-700 max-w-xs lg:max-w-md'>
+    <p className='px-6 py-3 rounded-t-full rounded-l-full bg-blue-600 max-w-xs lg:max-w-md'>
       Hey! How are you?
     </p>
     <button
       type='button'
       className='hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-1 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2'
     >
-      <SvgComponent name='viewmore' className='w-full h-full fill-current' />
+      <SvgComponent name='view-more' className='w-full h-full fill-current' />
     </button>
     <button
       type='button'
@@ -29,14 +29,14 @@ const MessageItem = () => (
 
 const SendMessage = () => (
   <div className='flex items-center flex-row group'>
-    <p className='px-6 py-3 rounded-t-full rounded-r-full bg-gray-800 max-w-xs lg:max-w-md text-gray-200'>
+    <p className='px-6 py-3 rounded-t-full rounded-r-full bg-gray-600 max-w-xs lg:max-w-md text-gray-200'>
       Hey! How are you?
     </p>
     <button
       type='button'
       className='hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-1 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2'
     >
-      <SvgComponent name='viewmore' className='w-full h-full fill-current' />
+      <SvgComponent name='view-more' className='w-full h-full fill-current' />
     </button>
     <button
       type='button'

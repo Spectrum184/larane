@@ -70,20 +70,20 @@ const ConversationCard = () => {
     <div className='contacts p-2 flex-1 overflow-y-scroll'>
       {mockData.map((item, index) => (
         <div
-          className='flex justify-between items-center p-3 hover:bg-gray-300 bg-gray-200 my-2 rounded-lg relative hover:cursor-pointer'
+          className='flex justify-between items-center p-3 hover:bg-gray-300 bg-gray-200 my-2 rounded-lg relative hover:cursor-pointer dark:bg-gray-700'
           key={index}
         >
           <div className='w-16 h-16 relative flex flex-shrink-0'>
             <Image
-              className='shadow-md rounded-full w-full h-full object-cover'
+              className='shadow-md rounded-full w-full h-full object-cover dark:bg-slate-400'
               src='/images/conversation.png'
               alt='avatar'
               layout='fill'
             />
           </div>
           <div className='flex-auto min-w-0 ml-4 mr-6 hidden md:block group-hover:block'>
-            <p className='text-black'>{item.name}</p>
-            <div className='flex items-center text-sm text-gray-600'>
+            <p className='text-black dark:text-white'>{item.name}</p>
+            <div className='flex items-center text-sm text-gray-600 dark:text-slate-400'>
               <div className='min-w-0'>
                 <p className='truncate'>{item.lastMessage}</p>
               </div>

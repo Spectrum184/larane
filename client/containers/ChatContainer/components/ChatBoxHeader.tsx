@@ -1,6 +1,6 @@
+import SvgComponent from '~/components/SvgComponent';
 import Image from 'next/image';
 import React from 'react';
-import SvgComponent from '~/components/SvgComponent';
 
 const ChatBoxHeader = () => {
   return (
@@ -15,7 +15,7 @@ const ChatBoxHeader = () => {
           />
         </div>
         <div className='text-sm'>
-          <p className='font-bold text-gray-700 hover:underline hover:cursor-pointer'>
+          <p className='font-bold text-gray-700 hover:underline hover:cursor-pointer dark:text-white'>
             Scarlett Johansson
           </p>
           <p className='text-gray-500'>Active 1h ago</p>
@@ -25,25 +25,25 @@ const ChatBoxHeader = () => {
       <div className='flex'>
         <a
           href='#'
-          className='block rounded-full hover:opacity-80 bg-gray-500 w-10 h-10 p-2'
+          className='block rounded-full hover:opacity-80 bg-slate-400 w-10 h-10 p-2'
         >
           <SvgComponent
-            name='tellcall'
+            name='tell-call'
             className='w-full h-full fill-current text-white stroke-0'
           />
         </a>
         <a
           href='#'
-          className='block rounded-full hover:opacity-80 bg-gray-500 w-10 h-10 p-2 ml-4'
+          className='block rounded-full hover:opacity-80 bg-slate-400 w-10 h-10 p-2 ml-4'
         >
           <SvgComponent
-            name='videocall'
+            name='video-call'
             className='w-full h-full fill-current text-white stroke-0'
           />
         </a>
         <a
           href='#'
-          className='block rounded-full hover:opacity-80 bg-gray-500 w-10 h-10 p-2 ml-4'
+          className='block rounded-full hover:opacity-80 bg-slate-400 w-10 h-10 p-2 ml-4'
         >
           <SvgComponent
             name='conversation-inf'

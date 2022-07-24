@@ -1,6 +1,6 @@
 import ConversationCard from './ConversationCard';
-import React, { useState } from 'react';
 import SvgComponent from '~/components/SvgComponent';
+import React, { useState } from 'react';
 
 const ConversationContainer = () => {
   const [searchMessage, setSearchMessage] = useState<string>('');
@@ -15,7 +15,7 @@ const ConversationContainer = () => {
         </p>
         <a
           href='#'
-          className='block rounded-full hover:opacity-80 bg-gray-400 w-10 h-10 p-2 md:block group-hover:block text-white'
+          className='block rounded-full hover:opacity-80 bg-slate-400 w-10 h-10 p-2 md:block group-hover:block text-white'
         >
           <SvgComponent
             name='new-chat'
@@ -28,7 +28,7 @@ const ConversationContainer = () => {
           <div className='relative'>
             <label>
               <input
-                className='rounded-full py-2 pr-6 pl-10 w-full border border-gray-400 bg-white dark:bg-gray-800 focus:outline-none text-gray-200'
+                className='rounded-full py-2 pr-6 pl-10 w-full border border-gray-400 bg-white focus:outline-none text-gray-200'
                 type='text'
                 value={searchMessage}
                 onChange={(e) => setSearchMessage(e.target.value)}
