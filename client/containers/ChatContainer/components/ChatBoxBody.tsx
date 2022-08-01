@@ -1,5 +1,5 @@
+import React, { useEffect, useRef } from 'react';
 import SvgComponent from '~/components/SvgComponent';
-import React from 'react';
 
 const MessageItem = () => (
   <div className='flex items-center flex-row-reverse group'>
@@ -54,6 +54,16 @@ const SendMessage = () => (
 );
 
 const ChatBoxBody = () => {
+  const messagesEndRef = useRef<null | HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, []);
+
   return (
     <div className='chat-body p-4 flex-1 overflow-y-scroll'>
       <p className='p-4 text-center text-sm text-gray-500'>12:40 PM</p>
@@ -71,6 +81,7 @@ const ChatBoxBody = () => {
           ))}
         </div>
       </div>
+      <div ref={messagesEndRef} />
     </div>
   );
 };
