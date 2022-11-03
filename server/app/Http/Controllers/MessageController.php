@@ -5,17 +5,25 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Message;
+use MessageService;
 
 class MessageController extends Controller
 {
+    protected $messageService;
+
+    public function __construct(MessageService $messageService)
+    {
+        $this->messageService = $messageService;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(int $conversation_id)
     {
-        //
+        return $this->messageService->getMessageAtConversation($conversation_id);
     }
 
     /**
@@ -36,7 +44,7 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        //
+        return $this->messageService->storeMessage($request->all());
     }
 
     /**
@@ -79,8 +87,8 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(int $id)
     {
-        //
+        return $this->messageService->deleteMessage($id);
     }
 }

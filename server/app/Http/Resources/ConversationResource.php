@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Resources;
@@ -17,13 +16,12 @@ class ConversationResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "lastMessage" => $this->last_message,
+            "lastMessageAt" => $this->last_message_at,
             "title" => $this->title,
-            "creatorId" => $this->creator_id,
+            "image" => $this->image,
             "theme" => $this->theme,
-            "createdAt" => $this->created_at,
-            "userId" => $this->user_id,
-            "userName" => $this->name,
-            "avatar" => $this->avatar,
+            "creatorId" => $this->creator_id,
         ];
     }
 }

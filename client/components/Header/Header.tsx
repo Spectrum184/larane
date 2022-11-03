@@ -10,7 +10,7 @@ const Header: FC = () => {
   const router = useRouter();
 
   return (
-    <div className='px-6 md:px-6 xl:px-9 flex justify-between items-center h-16 border-b-[1px] fixed top-0 left-0 w-full shadow-sm'>
+    <div className='px-6 md:px-6 xl:px-9 flex justify-between items-center h-16 border-b-[1px] fixed top-0 left-0 w-full shadow-sm dark:bg-gray-900'>
       <div
         className='relative h-9 w-9 cursor-pointer'
         onClick={() => router.push('/')}
@@ -22,7 +22,7 @@ const Header: FC = () => {
           layout='fill'
         />
       </div>
-      <div className='flex justify-between items-center h-9 rounded-full w-80 border px-3'>
+      <div className='flex justify-between items-center h-9 rounded-full w-80 border px-3 bg-white'>
         <SvgComponent name='search' className='h-5 w-5 text-gray-500' />
         <input
           type='text'

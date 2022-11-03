@@ -24,7 +24,15 @@ class StoreMessageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "emoji" => "string|max:100|nullable",
+            "user_id" => [
+                "required" => "This is anonymous user?",
+                "integer" => "User id must be integer",
+            ],
+            "conversation_id" => [
+                "required" => "This is anonymous conversation?",
+                "integer" => "User id must be integer",
+            ],
         ];
     }
 }

@@ -32,6 +32,19 @@ class UserSeeder extends Seeder
             "updated_at" => Carbon::now(),
         ]);
 
+        DB::table("users")->insert([
+            'name' => "Tu",
+            'email' => "anhtudang95@gmail.com",
+            'email_verified_at' => now(),
+            'password' => Hash::make("anhtudeptrai"),
+            'remember_token' => Str::random(10),
+            'role' => "ADMIN",
+            "status" => "Tao la Bo",
+            "birthday" => Carbon::createFromFormat("Y-m-d", "1995-04-18"),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
+        ]);
+
         // seed random data
         User::factory(100)->create();
     }

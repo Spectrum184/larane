@@ -22,9 +22,7 @@ class TaskService
         $task_arr = DB::table("tasks")->whereBetween("work_date", [$start_of_month, $end_of_month])->leftJoin("users", "tasks.user_id", "=", "users.id")->get();
 
         if ($task_arr->count() > 0) {
-            $task_arr = collect($task_arr)->map(function ($data) {
-                return new TaskResource($data);
-            });
+            return TaskResource::collection($task_arr);
         }
 
         return $task_arr;

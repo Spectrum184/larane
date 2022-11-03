@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Participant;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +23,9 @@ class DatabaseSeeder extends Seeder
             ConversationSeeder::class,
             MessageSeeder::class,
             ParticipantSeeder::class,
+            TagSeeder::class,
+            TagPostSeeder::class,
+            TagRuleSeeder::class,
         ]);
     }
 }

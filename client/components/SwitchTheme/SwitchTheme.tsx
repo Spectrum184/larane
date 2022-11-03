@@ -10,7 +10,7 @@ interface PropsType {
 
 const SwitchTheme: FC<PropsType> = ({ darkTheme, setDarkTheme }) => {
   return (
-    <div className='fixed bottom-32 right-4 flex flex-col'>
+    <div className='fixed bottom-24 right-4 flex flex-col'>
       <span
         className={clsx(
           'rounded-full shadow-md w-12 h-12 flex justify-center items-center cursor-pointer',

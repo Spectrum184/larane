@@ -22,13 +22,13 @@ const Layout: FC<PropsType> = ({
 
   return (
     <div
-      className={clsx('min-h-screen flex flex-col', {
+      className={clsx('min-h-screen flex flex-col font-sans', {
         dark: darkTheme,
       })}
     >
       {showHeader && <Header />}
       <div
-        className={clsx({
+        className={clsx('dark:bg-gray-900', {
           'mt-16 min-h-layout': showHeader,
           'min-h-screen': !showHeader,
         })}

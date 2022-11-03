@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreConversationRequest;
 use App\Http\Requests\UpdateConversationRequest;
+use App\Http\Services\ConversationService;
 use App\Models\Conversation;
-use ConversationService;
-use GuzzleHttp\Psr7\Request;
 
 class ConversationController extends Controller
 {
@@ -54,9 +53,9 @@ class ConversationController extends Controller
      * @param  \App\Models\Conversation  $conversation
      * @return \Illuminate\Http\Response
      */
-    public function show(Conversation $conversation)
+    public function getConversationDetail(int $conversation_id)
     {
-        //
+        return $this->conversationService->getConversation($conversation_id);
     }
 
     /**
